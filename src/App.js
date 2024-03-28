@@ -9,7 +9,9 @@ const initialState = {
     balance:0,
     loan:0,
     isActive:false,
-    status:'closeAccount'
+    status:'closeAccount',
+    loanstatus:false
+
 }
 function App() {
     const  [{balance,loan,isActive},dispatch]= useReducer(reduser,initialState)
@@ -39,12 +41,12 @@ function App() {
             />
             <Button
                 buttonName='PayLoan'
-                func={()=>{dispatch({type:'test'})}}
+                func={()=>{dispatch({type:'payloan'})}}
                 disabled={!isActive}
             />
             <Button
                 buttonName='Close account'
-                // func={}
+                func={()=>{dispatch({type:'closeAccount'})}}
                 disabled={!isActive}
             />
         </div>
